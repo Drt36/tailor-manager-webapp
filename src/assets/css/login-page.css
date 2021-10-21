@@ -1,0 +1,7 @@
+.main-div {
+    margin: 0vh 10vw 0vh 10vw;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns:1.5fr 3fr;
+    grid-template-areas: "welcome-div login-form-div";
+}

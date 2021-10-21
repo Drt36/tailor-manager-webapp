@@ -1,0 +1,54 @@
+.login-form-div {
+    padding: 2rem;
+    margin-top: 10vh;
+    margin-left: 5vw;
+    display: flex;
+    flex-direction: column;
+    color: var(--primary-color);
+    grid-area: login-form-div;
+}
+
+.login-form-div a {
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: large;
+    margin-top: 2vh;
+    color: var(--primary-color);
+}
+
+.login-form .input-wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+.input-wrapper svg {
+    font-size: x-large;
+    margin-top: 2.6rem;
+}
+
+.login-form input {
+    width: 80%;
+    padding: 1rem;
+    margin-top: 2rem;
+    margin-left: 1rem;
+    border-radius: 0.5rem;
+    border: 1.5px solid var(--primary-color);
+}
+
+.login-form__btn {
+    width: 10vw;
+    padding: 1rem;
+    border: none;
+    background-color: var(--primary-color);
+    font-weight: bold;
+    border-radius: 0.5rem;
+    transition: 0.5s linear;
+    color: white;
+    margin-top: 3vh;
+}
+
+.login-form__btn:hover {
+    cursor: pointer;
+    background-color: rgb(70, 6, 70);
+}

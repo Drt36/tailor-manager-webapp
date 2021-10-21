@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
+.welcome-div {
+    display: flex;
+    flex-direction: column;
+    grid-area: welcome-div;
+}
+
+.welcome-div__title {
+    font-weight: bolder;
+    color: var(--primary-color);
+    font-family: 'Dosis', sans-serif;
+}
+
+.welcome-div__desc {
+    margin-right: 2vh;
+    font-family: 'Dosis', sans-serif;
+}
+
+.welcome-div__img {
+    height: 50vh;
+    width: 40vw;
+}
