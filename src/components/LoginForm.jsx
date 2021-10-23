@@ -3,11 +3,20 @@ import "../assets/css/login-form.css";
 import { FaUser } from "react-icons/fa";
 import { RiLockPasswordFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
+import { sendPostRequest } from "../services/PostService";
+import { useHistory } from "react-router";
 
 const LoginForm = () => {
+  const history = useHistory();
   const [loginUser, setLoginUser] = useState({
     email: "",
     password: "",
+  });
+
+  const [responseData, setResponseData] = useState({
+    data: undefined,
+    error: undefined,
+    loading: false,
   });
 
   const checkInput = (e) => {
@@ -16,14 +25,28 @@ const LoginForm = () => {
     setLoginUser({ ...loginUser, [name]: value });
   };
 
-  const handelSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setResponseData({ data: undefined, error: undefined, loading: true });
+    const { data, error, loading } = await sendPostRequest("api/login",loginUser);
+    setResponseData({ data: data, error: error, loading: loading });
+    if (data !== undefined) {
+      if (data.role === "ADMIN") {
+        history.push(`/admin/dashboard/${data.email}`);
+      }
+      if (data.role === "USER") {
+        history.push(`/user/dashboard/${data.email}`);
+      }
+    }
   };
+
   return (
     <div className="login-form-div">
       <h1 className="login-form-div__title">Welcome !</h1>
       <h2 className="login-form-div__subtitle">Login here to continue.</h2>
-      <form className="login-form" onSubmit={handelSubmit}>
+      {responseData.error?(<p className="error">Ooops! Bad Credentials.{responseData.error}</p>):(" ")}
+      {responseData.loading?(<p className="loading">Authenticating...</p>):("")}
+      <form className="login-form" onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <FaUser />
           <input

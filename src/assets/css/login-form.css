@@ -52,3 +52,12 @@
     cursor: pointer;
     background-color: rgb(70, 6, 70);
 }
+
+.error{
+    color: red;
+    text-align: center;
+}
+.loading{
+    color: var(--primary-color);
+    text-align: center;
+}
